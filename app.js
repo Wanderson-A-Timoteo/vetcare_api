@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+const atendimentoRouter = require('./routes/atendimentoRoutes');
 
 var app = express();
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
+app.use('/api/atendimentos', atendimentoRouter);
 
 const { sequelize } = require('./model/modelos');
 sequelize.sync({ alter: true })

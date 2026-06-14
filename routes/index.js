@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.set('Cache-Control', 'no-store');
+  res.json({
+    servico: "VetCare API",
+    versao: "1.0.0",
+    documentacao: "/api-docs"
+  });
 });
 
 module.exports = router;
