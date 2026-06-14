@@ -1,6 +1,6 @@
 # VetCare API - Sistema de Gestão de Atendimentos Veterinários
 
-Projeto desenvolvido como requisito para a **Avaliação Prática 02** da disciplina de Desenvolvimento Web. Trata-se de uma API RESTful completa focada em gerenciamento de clínicas veterinárias, aplicando autenticação segura via JSON Web Tokens (JWT) com Passport.js, segurança de cabeçalhos HTTP com Helmet e controle de autorização baseada em cargos (Role-Based Access Control - RBAC).
+Projeto trata-se de uma API RESTful completa focada em gerenciamento de clínicas veterinárias, aplicando autenticação segura via JSON Web Tokens (JWT) com Passport.js, segurança de cabeçalhos HTTP com Helmet e controle de autorização baseada em cargos (Role-Based Access Control - RBAC).
 
 ---
 
