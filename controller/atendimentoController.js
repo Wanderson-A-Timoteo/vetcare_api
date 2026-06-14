@@ -2,6 +2,7 @@ const { Atendimento, Pet } = require('../model/modelos');
 
 // GET /api/atendimentos
 exports.listar = async (req, res) => {
+    // #swagger.tags = ['Atendimentos']
     try {
         res.set('Cache-Control', 'no-cache, public, max-age=15552000');
         
@@ -14,6 +15,7 @@ exports.listar = async (req, res) => {
 
 // GET /api/atendimentos/:id
 exports.buscarPorId = async (req, res) => {
+    // #swagger.tags = ['Atendimentos']
     try {
         res.set('Cache-Control', 'no-cache, private, max-age=86400');
         
@@ -28,6 +30,7 @@ exports.buscarPorId = async (req, res) => {
 
 // POST /api/atendimentos
 exports.criar = async (req, res) => {
+    // #swagger.tags = ['Atendimentos']
     try {
         const { data_hora, motivo, pet_id, usuario_id } = req.body;
 
@@ -44,6 +47,7 @@ exports.criar = async (req, res) => {
 
 // PUT /api/atendimentos/:id/iniciar
 exports.iniciar = async (req, res) => {
+    // #swagger.tags = ['Atendimentos']
     try {
         const atendimento = await Atendimento.findByPk(req.params.id);
         if (!atendimento) {
@@ -63,6 +67,7 @@ exports.iniciar = async (req, res) => {
 
 // PUT /api/atendimentos/:id/finalizar
 exports.finalizar = async (req, res) => {
+    // #swagger.tags = ['Atendimentos']
     try {
         const atendimento = await Atendimento.findByPk(req.params.id);
         if (!atendimento) {

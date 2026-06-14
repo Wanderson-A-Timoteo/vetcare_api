@@ -3,6 +3,7 @@ const { Op } = require('sequelize');
 
 // POST /api/pets
 exports.criar = async (req, res) => {
+    // #swagger.tags = ['Pets']
     try {
         const { nome, especie } = req.body;
 
@@ -19,6 +20,7 @@ exports.criar = async (req, res) => {
 
 // GET /api/pets
 exports.listar = async (req, res) => {
+    // #swagger.tags = ['Pets']
     try {
         res.set('Cache-Control', 'no-cache, public, max-age=15552000');
 

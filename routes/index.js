@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
+  // #swagger.tags = ['Index']
   res.set('Cache-Control', 'no-store');
   res.json({
     servico: "VetCare API",

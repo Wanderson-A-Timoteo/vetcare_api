@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 // POST /api/usuarios/cadastro
 exports.cadastrar = async (req, res) => {
+    // #swagger.tags = ['Usuarios']
     try {
         const { nome, usuario, senha, perfil } = req.body;
 
@@ -42,6 +43,7 @@ exports.cadastrar = async (req, res) => {
 
 // POST /api/usuarios/login
 exports.login = async (req, res) => {
+    // #swagger.tags = ['Usuarios']
     try {
         const { usuario, senha } = req.body;
 

@@ -12,6 +12,10 @@ const atendimentoRouter = require('./routes/atendimentoRoutes');
 const petRouter = require('./routes/petRoutes');
 const usuarioRouter = require('./routes/usuarioRoutes');
 
+const helmet = require('helmet');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger_output.json');
+
 var app = express();
 
 app.use(logger('dev'));
@@ -20,6 +24,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(passport.initialize());
+
+app.disable('x-powered-by');
+
+app.use(helmet({
+    contentSecurityPolicy: false,
+    referrerPolicy: { policy: 'no-referrer' }
+}));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use('/', indexRouter);
 app.use('/api/atendimentos', atendimentoRouter);
