@@ -16,4 +16,11 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 
+const { sequelize } = require('./model/modelos');
+sequelize.sync({ alter: true })
+  .then(() => console.log('Banco de dados MySQL e tabelas sincronizadas com sucesso.'))
+  .catch(err => console.error('Erro ao sincronizar com o MySQL:', err));
+
+module.exports = app;
+
 module.exports = app;
