@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
     ],
     "status": "online",
     "timestamp": new Date().toLocaleString('pt-BR'),
-    "documentacao": "http://localhost:3000/api-docs"
+    "documentacao": "https://wandersontimoteo-vetcare.alwaysdata.net/api-docs"
   });
 });
 
