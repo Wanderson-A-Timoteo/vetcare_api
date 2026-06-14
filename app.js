@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 const atendimentoRouter = require('./routes/atendimentoRoutes');
+const petRouter = require('./routes/petRoutes');
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/api/atendimentos', atendimentoRouter);
+app.use('/api/pets', petRouter);
 
 const { sequelize } = require('./model/modelos');
 sequelize.sync({ alter: true })
