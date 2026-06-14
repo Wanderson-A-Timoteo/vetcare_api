@@ -32,10 +32,11 @@ exports.buscarPorId = async (req, res) => {
 exports.criar = async (req, res) => {
     // #swagger.tags = ['Atendimentos']
     try {
-        const { data_hora, motivo, pet_id, usuario_id } = req.body;
+        const { data_hora, motivo, pet_id } = req.body;
+        const usuario_id = req.user.id;
 
-        if (!data_hora || !motivo || !pet_id || !usuario_id) {
-            return res.status(400).json({ error: "Campos 'data_hora', 'motivo', 'pet_id' and 'usuario_id' são obrigatórios" });
+        if (!data_hora || !motivo || !pet_id) {
+            return res.status(400).json({ error: "Campos 'data_hora', 'motivo' e 'pet_id' são obrigatórios" });
         }
 
         const novoAtendimento = await Atendimento.create({ data_hora, motivo, pet_id, usuario_id });

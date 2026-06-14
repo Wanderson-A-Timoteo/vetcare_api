@@ -46,6 +46,9 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -71,9 +74,6 @@
                 },
                 "pet_id": {
                   "example": "any"
-                },
-                "usuario_id": {
-                  "example": "any"
                 }
               }
             }
@@ -88,6 +88,9 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -115,6 +118,9 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -149,6 +155,9 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -181,6 +190,9 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -224,6 +236,9 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -247,6 +262,9 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error"
@@ -334,6 +352,237 @@
           }
         }
       }
+    }
+  },
+  "definitions": {
+    "UsuarioCriado": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "nome": {
+          "type": "string",
+          "example": "Admin"
+        },
+        "usuario": {
+          "type": "string",
+          "example": "admin"
+        },
+        "perfil": {
+          "type": "string",
+          "example": "admin"
+        }
+      },
+      "required": [
+        "id",
+        "nome",
+        "usuario",
+        "perfil"
+      ]
+    },
+    "NovoUsuario": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "Admin"
+        },
+        "usuario": {
+          "type": "string",
+          "example": "admin"
+        },
+        "senha": {
+          "type": "string",
+          "example": "senha123"
+        },
+        "perfil": {
+          "type": "string",
+          "example": "admin"
+        }
+      },
+      "required": [
+        "nome",
+        "usuario",
+        "senha",
+        "perfil"
+      ]
+    },
+    "LoginUsuario": {
+      "type": "object",
+      "properties": {
+        "usuario": {
+          "type": "string",
+          "example": "admin"
+        },
+        "senha": {
+          "type": "string",
+          "example": "senha123"
+        }
+      },
+      "required": [
+        "usuario",
+        "senha"
+      ]
+    },
+    "LoginResposta": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string",
+          "example": "eyJhbGciOiJIUzI1NiIsInR5c..."
+        },
+        "usuario": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "example": 1
+            },
+            "nome": {
+              "type": "string",
+              "example": "Admin"
+            },
+            "usuario": {
+              "type": "string",
+              "example": "admin"
+            },
+            "perfil": {
+              "type": "string",
+              "example": "admin"
+            }
+          },
+          "required": [
+            "id",
+            "nome",
+            "usuario",
+            "perfil"
+          ]
+        }
+      },
+      "required": [
+        "token",
+        "usuario"
+      ]
+    },
+    "Pet": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "nome": {
+          "type": "string",
+          "example": "Spike"
+        },
+        "especie": {
+          "type": "string",
+          "example": "cachorro"
+        },
+        "criada_em": {
+          "type": "string",
+          "example": "2026-06-12T01:35:18.000Z"
+        },
+        "atualizada_em": {
+          "type": "string",
+          "example": "2026-06-12T01:35:18.000Z"
+        }
+      },
+      "required": [
+        "id",
+        "nome",
+        "especie",
+        "criada_em",
+        "atualizada_em"
+      ]
+    },
+    "NovoPet": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string",
+          "example": "Spike"
+        },
+        "especie": {
+          "type": "string",
+          "example": "cachorro"
+        }
+      },
+      "required": [
+        "nome",
+        "especie"
+      ]
+    },
+    "Atendimento": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "example": 1
+        },
+        "data_hora": {
+          "type": "string",
+          "example": "2026-06-11T14:30:00.000Z"
+        },
+        "motivo": {
+          "type": "string",
+          "example": "Consulta de rotina e vacinação"
+        },
+        "status": {
+          "type": "string",
+          "example": "agendado"
+        },
+        "pet_id": {
+          "type": "number",
+          "example": 1
+        },
+        "usuario_id": {
+          "type": "number",
+          "example": 4
+        },
+        "criada_em": {
+          "type": "string",
+          "example": "2026-06-12T01:45:19.000Z"
+        },
+        "atualizada_em": {
+          "type": "string",
+          "example": "2026-06-12T01:45:19.000Z"
+        }
+      },
+      "required": [
+        "id",
+        "data_hora",
+        "motivo",
+        "status",
+        "pet_id",
+        "usuario_id",
+        "criada_em",
+        "atualizada_em"
+      ]
+    },
+    "NovoAtendimento": {
+      "type": "object",
+      "properties": {
+        "data_hora": {
+          "type": "string",
+          "example": "2026-06-11T14:30:00.000Z"
+        },
+        "motivo": {
+          "type": "string",
+          "example": "Consulta de rotina e vacinação"
+        },
+        "pet_id": {
+          "type": "number",
+          "example": 1
+        }
+      },
+      "required": [
+        "data_hora",
+        "motivo",
+        "pet_id"
+      ]
     }
   },
   "security": [
